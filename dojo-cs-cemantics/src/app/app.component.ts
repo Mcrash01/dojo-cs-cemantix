@@ -23,10 +23,12 @@ export class AppComponent {
   hasError = false;
   myResultDistance = 0
 
+
   sendMyGuess() {
     this.myResultDistance = 45
+    console.log("Sending guess: " + this.myGuess)
     this.apiClient.getPokemonValue({
-      value: this.myGuess
+      value: encodeURI(this.myGuess)
     }).pipe(
       catchError(err => {
         this.myResultDistance = 0
