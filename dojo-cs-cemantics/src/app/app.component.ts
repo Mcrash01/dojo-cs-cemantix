@@ -37,7 +37,8 @@ export class AppComponent {
       })
     ).subscribe(result=> {
       this.hasError = false;
-      this.myResultDistance = result.value
+      // map the value (range -1 to 1) to a range 0 to 100
+      this.myResultDistance = (result.value + 1) * 50
     });
   }
 }
